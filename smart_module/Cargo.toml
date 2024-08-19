@@ -1,0 +1,7 @@
+[package]
+name = "google_trends_smart_module"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+fluvio-smartmodule = "0.8.0"  # Check for the latest version
