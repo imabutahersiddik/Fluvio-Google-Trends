@@ -1,37 +1,19 @@
 const ctx = document.getElementById('trendsChart').getContext('2d');
-
 const trendsChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['Keyword1', 'Keyword2'], // Placeholder for dynamic labels
+        labels: ['Keyword1', 'Keyword2'],
         datasets: [{
             label: 'Search Volume',
-            data: [12, 19], // Placeholder for dynamic data
+            data: [12, 19],
             borderColor: 'rgba(75, 192, 192, 1)',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderWidth: 2,
-            pointRadius: 5,
-            pointHoverRadius: 7,
-            fill: true,
+            borderWidth: 1,
+            fill: false,
+            tension: 0.1
         }]
     },
     options: {
         responsive: true,
-        scales: {
-            y: {
-                beginAtZero: true,
-                title: {
-                    display: true,
-                    text: 'Search Volume'
-                }
-            },
-            x: {
-                title: {
-                    display: true,
-                    text: 'Keywords'
-                }
-            }
-        },
         plugins: {
             legend: {
                 display: true,
@@ -39,8 +21,8 @@ const trendsChart = new Chart(ctx, {
             },
             tooltip: {
                 callbacks: {
-                    label: function(context) {
-                        return `${context.dataset.label}: ${context.raw}`;
+                    label: function(tooltipItem) {
+                        return `Volume: ${tooltipItem.raw}`;
                     }
                 }
             }
